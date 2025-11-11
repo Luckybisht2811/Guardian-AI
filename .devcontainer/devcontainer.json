@@ -1,0 +1,47 @@
+{
+  "name": "Python 3 Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11-slim",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/workspaces/${localWorkspaceFolderBasename}/.venv/bin/python",
+        "python.terminal.activateEnvironment": true,
+        "editor.formatOnSave": true,
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  },
+
+  "updateContentCommand": "python -m venv .venv && . .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt || true && pip install streamlit",
+
+  "remoteEnv": {
+    "VIRTUAL_ENV": "/workspaces/${localWorkspaceFolderBasename}/.venv",
+    "PATH": "/workspaces/${localWorkspaceFolderBasename}/.venv/bin:${PATH}"
+  },
+
+  "postAttachCommand": "bash -c 'if [ -f app/app.py ]; then streamlit run app/app.py --server.enableCORS false --server.enableXsrfProtection false; fi'",
+
+  "forwardPorts": [8501],
+
+  "portsAttributes": {
+    "8501": {
+      "label": "Streamlit App",
+      "onAutoForward": "openPreview"
+    }
+  }
+}
