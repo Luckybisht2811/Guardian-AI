@@ -53,12 +53,23 @@ GitHub: [https://github.com/Luckybisht2811](https://github.com/Luckybisht2811)
 ```text
 Guardian-AI/
 │
-├── data/                 # Crime datasets
-├── model/                # Trained ML models
-├── app.py                # Main Streamlit application
-├── Dockerfile            # Docker configuration
-├── requirements.txt      # Project dependencies
-└── README.md             # Project documentation
+├── .devcontainer/                   # Configuration files for VS Code Dev Container
+├── component_datasets/              # Datasets for different components of the system
+├── continuous_learning_and_feedback/ # Modules for model retraining and feedback integration
+├── crime_pattern_analysis/          # Scripts and notebooks for crime pattern discovery
+├── criminal_profiling/              # Modules for profiling criminals based on historical data
+├── predictive_modeling/recidivism_prediction/ # ML models and scripts for recidivism prediction
+├── resources_allocation/            # Scripts for optimizing police resource distribution
+├── app/                             # Streamlit / web application front-end files
+├── assets/                          # Static files like images, icons, logos
+├── models/recidivism_model/         # Saved ML models for crime prediction
+├── pipelines/                        # Data pipelines for preprocessing, training, and evaluation
+├── devcontainer.json                 # VS Code dev container configuration file
+├── Dockerfile                        # Docker configuration for containerized deployment
+├── packages.txt                       # Additional package dependencies
+├── requirements.txt                   # Python project dependencies
+└── README.md                          # Project documentation
+
 
 ⚙️ Installation & Usage
 1️⃣ Clone the repository
